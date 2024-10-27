@@ -148,9 +148,24 @@ class Grid:
                         break
 
         if merged:
-            self._move_up_and_merge()
+            self._move_up()
 
         return merged or moved
+
+    def _move_up(self):
+        for i in range(1,4):
+            for j in range(4):
+                item = self.arr[i][j]
+                if item == 0:
+                    continue
+
+                for k in reversed(range(0,i)):
+                    if self.arr[k][j] == 0:
+                        self.arr[k][j] = self.arr[k+1][j]
+                        self.arr[k+1][j] = 0
+                        moved = True
+                    else:
+                        break
 
     def __str__(self):
         _str = ""
