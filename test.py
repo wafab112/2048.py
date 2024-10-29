@@ -83,5 +83,13 @@ class TestGridMerge(unittest.TestCase):
         grid.move(Direction.UP)
         self.assertEqual(ex, grid)
 
+    def test_2_2_4_0(self):
+        ex = Grid.WithPos((0, 0, 4), (1, 0, 4))
+
+        grid = Grid.WithPos((0, 0, 2), (1, 0, 2), (2, 0, 4))
+        grid.move(Direction.UP)
+        self.assertEqual(ex, grid)
+
+
 if __name__ == "__main__":
     unittest.main()
